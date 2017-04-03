@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import crypto from 'crypto';
 import cors from 'cors';
+import helmet from 'helmet';
 import { uuid } from './uuid';
 import { sendError, sendOptions, notFoundOrGone, sendJsonOrNotAcceptable } from './utils';
 
@@ -10,6 +11,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+app.use(helmet());
 
 const baseURL = 'https://v1.api.ajmay.co';
 

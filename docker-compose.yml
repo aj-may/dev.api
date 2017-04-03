@@ -1,0 +1,19 @@
+version: '3'
+services:
+  api:
+    image: ajmay/dev.null
+    build: .
+    command: npm run dev
+    volumes:
+      - ./dist:/app/dist
+    ports:
+      - 80
+
+  watch:
+    image: ajmay/dev.null
+    build: .
+    volumes:
+      - ./dist:/app/dist
+      - ./src:/app/src
+      - ./.babelrc:/app/.babelrc
+    command: npm run watch
